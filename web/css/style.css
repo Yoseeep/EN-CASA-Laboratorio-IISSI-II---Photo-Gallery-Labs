@@ -19,3 +19,18 @@ img.photo-image {
     max-height: 200px;
     width: auto;
 }
+
+body.dark {
+  background-color: #222222;
+  color: #eeeeee;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+img.photo-image {
+    width: 100%;
+    height: auto;
+}
