@@ -50,3 +50,26 @@ input, select {
 .input-group {
     margin-bottom: 0.5em;
 }
+
+
+div.title-block {
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background-color: #333333;
+}
+
+#title {
+  font-size: 300%;
+  text-decoration: none;
+  color: #BBBBBB;
+  font-family: sans-serif;
+  margin-bottom: 0;
+}
+
+#subtitle {
+  font-size: 120%;
+  font-style: italic;
+  color: #BBBBBB;
+  font-family: monospace;
+}
