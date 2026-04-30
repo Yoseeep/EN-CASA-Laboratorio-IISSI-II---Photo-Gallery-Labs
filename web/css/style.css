@@ -73,3 +73,14 @@ div.title-block {
   color: #BBBBBB;
   font-family: monospace;
 }
+
+div.navigation > a {
+    color: white;
+    font-size: 120%;
+    background-color: #555555;
+    font-family: monospace;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 150px;
+}
+
