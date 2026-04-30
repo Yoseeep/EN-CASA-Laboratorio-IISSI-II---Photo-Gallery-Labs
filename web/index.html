@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recent pictures</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/utils/include.js"></script>
   </head>
   <body class="dark">
+    <div id="page-header"></div>
+
     <h2>Recent pictures</h2>
     <a href="upload_picture.html">Upload a new picture</a>
 
@@ -51,5 +54,9 @@
       </div>
     </div>
 
+
+    <script>
+      include("header.html", "#page-header");
+    </script>
   </body>
 </html>
