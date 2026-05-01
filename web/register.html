@@ -17,62 +17,131 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-md">
-          <h3>Register</h3>
+          <h3>Register a new user</h3>
         </div>
         <hr />
       </div>
     </div>
 
-    <h2>Register a new user:</h2>
-    <form>
-      <div class="input-group">
-        <label for="firstname-input">First name:</label>
-        <input type="text" id="firstname-input" name="firstName" required />
+    <form class="container">
+      <div class="row">
+        <div class="col-md mb-2">
+          <div class="form-group">
+            <label for="firstname-input">First name:</label>
+            <input
+              type="text"
+              class="form-control text-light bg-dark"
+              id="firstname-input"
+              name="firstName"
+              placeholder="First name"
+            />
+          </div>
+        </div>
+
+        <div class="col-md mb-2">
+          <div class="form-group">
+            <label for="lastname-input">Last name:</label>
+            <input
+              type="text"
+              class="form-control text-light bg-dark"
+              id="lastname-input"
+              name="lastName"
+              placeholder="Last name"
+            />
+          </div>
+        </div>
       </div>
 
-      <div class="input-group">
-        <label for="lastname-input">Last name:</label>
-        <input type="text" id="lastname-input" name="lastName" required />
+      <div class="row">
+        <div class="col-md mb-2">
+          <div class="form-group">
+            <label for="email-input">Email:</label>
+            <input
+              type="text"
+              class="form-control text-light bg-dark"
+              id="email-input"
+              name="email"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+
+        <div class="col-md mb-2">
+          <div class="form-group">
+            <label for="telephone-input">Phone number:</label>
+            <input
+              type="text"
+              class="form-control text-light bg-dark"
+              id="telephone-input"
+              name="telephone"
+              placeholder="Phone number"
+            />
+          </div>
+        </div>
       </div>
 
-      <div class="input-group">
-        <label for="email-input">Email:</label>
-        <input type="email" id="email-input" name="email" required />
+      <div class="row">
+        <div class="col-md mb-2">
+          <div class="form-group">
+            <label for="username-input">Username:</label>
+            <input
+              type="text"
+              class="form-control text-light bg-dark"
+              id="username-input"
+              name="username"
+              placeholder="Username"
+            />
+          </div>
+        </div>
+
+        <div class="col-md mb-2">
+          <div class="form-group">
+            <label for="password-input">Password:</label>
+            <input
+              type="password"
+              class="form-control text-light bg-dark"
+              id="password-input"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+
+        <div class="col-md mb-2">
+          <div class="form-group">
+            <label for="password2-input">Repeat password:</label>
+            <input
+              type="password"
+              class="form-control text-light bg-dark"
+              id="password2-input"
+              name="password2"
+              placeholder="Repeat password"
+            />
+          </div>
+        </div>
       </div>
 
-      <div class="input-group">
-        <label for="telephone-input">Telephone:</label>
-        <select name="prefix" id="prefix-input">
-          <option value="34">Spain (+34)</option>
-          <option value="1">USA (+1)</option>
-          <option value="other">Other</option>
-        </select>
-        <input type="text" id="telephone-input" name="telephone" required />
+      <div class="row">
+        <div class="col-md mb-2">
+          <div class="form-group">
+            <label for="avatarUrl-input">Profile picture link:</label>
+            <input
+              type="text"
+              class="form-control text-light bg-dark"
+              id="avatarUrl-input"
+              name="avatarUrl"
+              placeholder="Profile picture link"
+            />
+          </div>
+        </div>
       </div>
 
-      <div class="input-group">
-        <label for="username-input">Username:</label>
-        <input type="text" id="username-input" name="username" required />
+      <div class="row">
+        <div class="col-md text-center">
+          <button type="submit" class="btn btn-primary mt-3">Register</button>
+        </div>
       </div>
 
-      <div class="input-group">
-        <label for="password-input">Password:</label>
-        <input type="password" id="password-input" name="password" required />
-      </div>
-
-      <div class="input-group">
-        <label for="password2-input">Repeat your password:</label>
-        <input
-          type="password2"
-          id="password2-input"
-          name="password2"
-          required
-        />
-      </div>
-
-      <div class="input-group">
-        <input type="submit" />
-      </div>
     </form>
 
     <script>
