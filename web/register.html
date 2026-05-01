@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <script src="js/libs/bootstrap.min.js"></script>
     <script src="js/utils/include.js"></script>
+    <script type="module" src="js/register.js"></script>
   </head>
   <body class="dark">
     <div id="page-header"></div>
@@ -23,7 +24,9 @@
       </div>
     </div>
 
-    <form class="container">
+    
+    <form class="container" id="register-form">
+      <div id="errors"></div>
       <div class="row">
         <div class="col-md mb-2">
           <div class="form-group">
@@ -141,7 +144,6 @@
           <button type="submit" class="btn btn-primary mt-3">Register</button>
         </div>
       </div>
-
     </form>
 
     <script>
