@@ -84,3 +84,6 @@ div.navigation > a {
     min-width: 150px;
 }
 
+#gallery .col-md-4:has(.card) {
+    padding: 6px;
+}

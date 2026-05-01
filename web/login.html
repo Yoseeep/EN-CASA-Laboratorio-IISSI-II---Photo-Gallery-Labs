@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+      ,
+      shrink-to-fit="no"
+    />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/libs/bootstrap.min.js"></script>
+    <script src="js/utils/include.js"></script>
+  </head>
+  <body class="dark text-light">
+    <div id="page-header"></div>
+
+    <!-- NOMBRE SECCIÓN -->
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md">
+          <h3>Login</h3>
+        </div>
+        <hr />
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <form>
+          <div class="form-group mt-2">
+            <label for="username-input">Username:</label>
+            <input
+              type="text"
+              class="form-control text-light bg-dark"
+              id="username-input"
+              name="username"
+              placeholder="Username"
+            />
+          </div>
+          <div class="form-group mt-2">
+            <label for="password-input">Password:</label>
+            <input
+              type="password"
+              class="form-control text-light bg-dark"
+              id="password-input"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      include("header.html", "#page-header");
+    </script>
+  </body>
+</html>
