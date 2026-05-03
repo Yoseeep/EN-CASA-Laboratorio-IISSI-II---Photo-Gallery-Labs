@@ -13,6 +13,8 @@ async function main() {
   // Check that we have an ID before doing anything else
   if (photoId === null) {
     messageRenderer.showErrorMessage("Please, provide a photoId");
+    let photoActionsColumn = document.querySelector("#photo-actions-column");
+    photoActionsColumn.remove();
     return;
   }
 
