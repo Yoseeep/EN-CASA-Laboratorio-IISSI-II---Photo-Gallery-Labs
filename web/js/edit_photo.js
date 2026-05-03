@@ -21,17 +21,29 @@ async function handleSubmitPhoto(event) {
 
   let form = event.target;
   let formData = new FormData(form);
-  console.log(formData);
 
-  // Add the current user ID
-  formData.append("userId", 1);
-
-  try {
-    let resp = await photosAPI_auto.create(formData);
-    let newId = resp.lastId;
-    window.location.href = `photo_detail.html?photoId=${newId}`;
-  } catch (err) {
-    messageRenderer.showErrorMessage(err);
+  if (currentPhoto === null) {
+    // Creating a new photo
+    // Add the current user ID
+    formData.append("userId", 1);
+    formData.append("date", fechaHoraActualParseada());
+    try {
+      let resp = await photosAPI_auto.create(formData);
+      let newId = resp.lastId;
+      window.location.href = `photo_detail.html?photoId=${newId}`;
+    } catch (err) {
+      messageRenderer.showErrorAsAlert(err);
+    }
+  } else {
+    // Updating an existing photo
+    formData.append("userId", currentPhoto.userId);
+    formData.append("date", currentPhoto.date);
+    try {
+      await photosAPI_auto.update(formData, photoId);
+      window.location.href = `photo_detail.html?photoId=${photoId}`;
+    } catch (err) {
+      messageRenderer.showErrorMessage(err);
+    }
   }
 }
 
@@ -51,8 +63,21 @@ async function loadCurrentPhoto() {
     descriptionInput.value = currentPhoto.description;
     visibilityInput.value = currentPhoto.visibility;
   } catch (err) {
-    messageRenderer.showErrorMessage(err.response.data.message);
+    messageRenderer.showErrorMessage(err);
   }
+}
+
+function fechaHoraActualParseada() {
+  let fechaHoraActual = new Date();
+  let año = fechaHoraActual.getFullYear();
+  let mes = String(fechaHoraActual.getMonth() + 1).padStart(2, "0");
+  let día = String(fechaHoraActual.getDate()).padStart(2, "0");
+  let horas = String(fechaHoraActual.getHours()).padStart(2, "0");
+  let minutos = String(fechaHoraActual.getMinutes()).padStart(2, "0");
+  let segundos = String(fechaHoraActual.getSeconds()).padStart(2, "0");
+  let fechaHoraParseada = `${año}-${mes}-${día} ${horas}:${minutos}:${segundos}`;
+
+  return fechaHoraParseada;
 }
 
 document.addEventListener("DOMContentLoaded", main);
