@@ -7,7 +7,6 @@ import { messageRenderer } from "/js/renderers/messages.js";
 // Get the ID of the photo to load from the URL params
 let urlParams = new URLSearchParams(window.location.search);
 let photoId = urlParams.get("photoId");
-console.log("Photo ID to load:", photoId);
 
 async function main() {
   // Check that we have an ID before doing anything else
