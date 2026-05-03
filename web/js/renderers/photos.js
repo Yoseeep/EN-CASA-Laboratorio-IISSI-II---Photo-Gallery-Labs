@@ -6,7 +6,9 @@ const photoRenderer = {
   asCard: function (photo) {
     let html = `<div class="col-md-4">
       <div class="card bg-dark text-light">
-        <img src="${photo.url}" class="card-img-top">
+        <a href="photo_detail.html?photoId=${photo.photoId}">
+          <img src="${photo.url}" class="card-img-top">
+        </a>
 
         <div class="card-body">
           <h5 class="card-title text-center">${photo.title}</h5>
@@ -19,7 +21,7 @@ const photoRenderer = {
     let card = parseHTML(html);
     return card;
   },
-  
+
   asDetails: function (photo) {
     let html = `<div class="photo-details">
         <h3>${photo.title}</h3>
