@@ -87,3 +87,9 @@ div.navigation > a {
 #gallery .col-md-4:has(.card) {
     padding: 6px;
 }
+
+img.photo-user-avatar {
+    max-width: 25px;
+    height: auto;
+    border-radius: 50%;
+}
