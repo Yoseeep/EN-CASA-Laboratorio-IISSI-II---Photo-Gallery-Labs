@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <script src="js/libs/bootstrap.min.js"></script>
     <script src="js/utils/include.js"></script>
-    <script src="js/renderers/photo_detail.js" type="module"></script>
+    <script src="js/photo_detail.js" type="module"></script>
     <script src="js/libs/axios.min.js"></script>
   </head>
   <body class="dark">
@@ -34,8 +34,8 @@
 
         <div class="col-md-3 pt-3 pt-md-0" id="photo-actions-column">
           <div class="mb-3">
-            <button class="btn btn-primary mb-1">Edit this photo</button>
-            <button class="btn btn-danger mb-1">Delete this photo</button>
+            <button id="button-edit" class="btn btn-primary mb-1">Edit this photo</button>
+            <button id="button-delete" class="btn btn-danger mb-1">Delete this photo</button>
           </div>
           <form>
             <div class="form-group">
