@@ -1,7 +1,7 @@
 "use strict";
 import { parseHTML } from "./utils/parseHTML.js";
 import { galleryRenderer } from "./renderers/gallery.js";
-import  {photosAPI_auto } from "./api/_photos.js";
+import  { photoswithusersAPI_auto } from "./api/_photoswithusers.js";
 import { messageRenderer } from "./renderers/messages.js";
 
 function main() {
@@ -12,7 +12,7 @@ async function loadAllPhotos() {
     let galleryContainer = document.querySelector("#gallery");
     
     try {
-        let photos = await photosAPI_auto.getAll();
+        let photos = await photoswithusersAPI_auto.getAll();
         let cardGallery = galleryRenderer.asCardGallery(photos);
         galleryContainer.appendChild(cardGallery);
     } catch (err) {
