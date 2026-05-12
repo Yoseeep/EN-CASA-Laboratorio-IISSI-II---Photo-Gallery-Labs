@@ -2,6 +2,8 @@
 
 import { messageRenderer } from "./renderers/messages.js";
 import { userValidator } from "./validators/users.js";
+import { sessionManager } from "./utils/session.js";
+import { authAPI_auto } from "./api/_auth.js";
 
 function main() {
   let registerForm = document.querySelector("#register-form");
@@ -9,21 +11,35 @@ function main() {
 }
 
 function handleSubmitRegister(event) {
+  event.preventDefault();
   let form = event.target;
   let formData = new FormData(form);
 
   let errors = userValidator.validateRegister(formData);
 
   if (errors.length > 0) {
-        event.preventDefault();
         let errorsDiv = document.getElementById("errors");
         errorsDiv.innerHTML = "";
         
         for (let error of errors) {
             messageRenderer.showErrorMessage(error);
         }
+    } else {
+      sendRegister(formData);
     }
+}
 
+async function sendRegister(formData) {
+  try {
+    let loginData = await authAPI_auto.register(formData);
+    let sessionToken = loginData.sessionToken;
+    let loggedUser = loginData.user;
+
+    sessionManager.login(sessionToken, loggedUser);
+    window.location.href = "index.html";
+  } catch (error) {
+    messageRenderer.showErrorMessage("Error registering a new user.", error);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", main);
