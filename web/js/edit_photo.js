@@ -32,7 +32,7 @@ async function handleSubmitPhoto(event) {
       let newId = resp.lastId;
       window.location.href = `photo_detail.html?photoId=${newId}`;
     } catch (err) {
-      messageRenderer.showErrorAsAlert(err);
+      messageRenderer.showErrorMessage(err);
     }
   } else {
     // Updating an existing photo
