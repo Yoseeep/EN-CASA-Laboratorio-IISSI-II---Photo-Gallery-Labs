@@ -15,6 +15,8 @@
     <script src="js/libs/bootstrap.min.js"></script>
     <script src="js/utils/include.js"></script>
     <script type="module" src="js/header.js"></script>
+    <script type="module" src="js/login.js"></script>
+    <script src="js/libs/axios.min.js"></script>
   </head>
   <body class="dark text-light">
     <div id="page-header"></div>
@@ -29,9 +31,11 @@
       </div>
     </div>
 
+    <div class="container" id="errors"></div>
+
     <div class="container">
       <div class="row">
-        <form class="text-center">
+        <form class="text-center" id="login-form">
           <div class="form-group mb-2 col-md-6 m-auto text-start">
             <label for="username-input">Username:</label>
             <input
@@ -62,5 +66,4 @@
     <script>
       include("header.html", "#page-header");
     </script>
-  </body>
-</html>
+  </body
