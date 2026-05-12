@@ -3,6 +3,7 @@
 import { photoRenderer } from "./renderers/photos.js";
 import { photosAPI_auto } from "/js/api/_photos.js";
 import { messageRenderer } from "/js/renderers/messages.js";
+import { sessionManager } from "./utils/session.js";
 
 // Get the ID of the photo to load from the URL params
 let urlParams = new URLSearchParams(window.location.search);
@@ -24,6 +25,8 @@ async function main() {
 
   let editBtn = document.querySelector("#button-edit");
   editBtn.onclick = handleEdit;
+
+  hideActionsColumn();
 }
 
 async function loadPhotoDetails() {
@@ -52,6 +55,13 @@ async function handleDelete(event) {
 
 function handleEdit(event) {
   window.location.href = "edit_photo.html?photoId=" + photoId;
+}
+
+function hideActionsColumn() {
+    let actions_col = document.getElementById("photo-actions-column");
+    if (!sessionManager.isLogged()) {
+        actions_col.style.display = "none";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", main);
