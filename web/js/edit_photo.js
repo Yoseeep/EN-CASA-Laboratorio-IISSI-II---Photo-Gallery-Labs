@@ -2,6 +2,7 @@
 
 import { photosAPI_auto } from "../js/api/_photos.js";
 import { messageRenderer } from "../js/renderers/messages.js";
+import { sessionManager } from "../js/utils/session.js";
 
 let urlParams = new URLSearchParams(window.location.search);
 let photoId = urlParams.get("photoId");
@@ -25,7 +26,7 @@ async function handleSubmitPhoto(event) {
   if (currentPhoto === null) {
     // Creating a new photo
     // Add the current user ID
-    formData.append("userId", 1);
+    formData.append("userId", sessionManager.getLoggedId());
     formData.append("date", fechaHoraActualParseada());
     try {
       let resp = await photosAPI_auto.create(formData);

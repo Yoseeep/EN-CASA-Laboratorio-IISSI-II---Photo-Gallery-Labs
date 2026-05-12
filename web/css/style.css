@@ -93,3 +93,8 @@ img.photo-user-avatar {
     height: auto;
     border-radius: 50%;
 }
+
+.dropdown-item:hover {
+    background-color: #555555;
+    color: #BBBBBB;
+}

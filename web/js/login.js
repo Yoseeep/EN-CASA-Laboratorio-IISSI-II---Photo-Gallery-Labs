@@ -6,16 +6,16 @@ import { sessionManager } from "./utils/session.js";
 import { authAPI_auto } from "./api/_auth.js";
 
 function main() {
-  let registerForm = document.querySelector("#register-form");
-  registerForm.onsubmit = handleSubmitRegister;
+  let loginForm = document.querySelector("#login-form");
+  loginForm.onsubmit = handleSubmitLogin;
 }
 
-function handleSubmitRegister(event) {
+function handleSubmitLogin(event) {
   event.preventDefault();
   let form = event.target;
   let formData = new FormData(form);
 
-  let errors = userValidator.validateRegister(formData);
+  let errors = userValidator.validateLogin(formData);
 
   if (errors.length > 0) {
         let errorsDiv = document.getElementById("errors");
@@ -25,20 +25,20 @@ function handleSubmitRegister(event) {
             messageRenderer.showErrorMessage(error);
         }
     } else {
-      sendRegister(formData);
+      sendLogin(formData);
     }
 }
 
-async function sendRegister(formData) {
+async function sendLogin(formData) {
   try {
-    let loginData = await authAPI_auto.register(formData);
+    let loginData = await authAPI_auto.login(formData);
     let sessionToken = loginData.sessionToken;
     let loggedUser = loginData.user;
 
     sessionManager.login(sessionToken, loggedUser);
     window.location.href = "index.html";
   } catch (error) {
-    messageRenderer.showErrorMessage("Error registering a new user.", error);
+    messageRenderer.showErrorMessage("Error logging in.", error);
   }
 }
 
