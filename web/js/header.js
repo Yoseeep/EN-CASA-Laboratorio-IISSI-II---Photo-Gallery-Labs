@@ -4,6 +4,7 @@ import { sessionManager } from "./utils/session.js";
 
 function main() {
     showUser();
+    addLogoutHandler();
 }
 
 function showUser() {
@@ -18,6 +19,15 @@ function showUser() {
     }
 
     title.textContent = text;
+}
+
+function addLogoutHandler() {
+    let logoutButton = document.getElementById("navbar-logout");
+
+    logoutButton.onclick = function () {
+        sessionManager.logout();
+        window.location.href = "index.html";
+    };
 }
 
 document.addEventListener("DOMContentLoaded", main);
