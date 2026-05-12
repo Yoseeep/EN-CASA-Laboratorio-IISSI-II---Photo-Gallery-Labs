@@ -18,6 +18,18 @@ const userValidator = {
     }
     return errors;
   },
+  validateLogin: function (formData) {
+    let username = formData.get("username");
+    let password = formData.get("password");
+
+    let errors = [];
+
+    if (username.length === 0 || password.length === 0) {
+      errors.push("Please fill in all fields");
+    }
+
+    return errors;
+  }
 };
 
 export { userValidator };
