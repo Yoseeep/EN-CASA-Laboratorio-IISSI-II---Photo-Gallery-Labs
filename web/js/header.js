@@ -5,6 +5,7 @@ import { sessionManager } from "./utils/session.js";
 function main() {
     showUser();
     addLogoutHandler();
+    hideHeaderOptions();
 }
 
 function showUser() {
@@ -28,6 +29,25 @@ function addLogoutHandler() {
         sessionManager.logout();
         window.location.href = "index.html";
     };
+}
+
+function hideHeaderOptions() {
+    let headerRegister = document.getElementById("navbar-register");
+    let headerLogin = document.getElementById("navbar-login");
+    let headerLogout = document.getElementById("navbar-logout");
+    let headerRecent = document.getElementById("navbar-recent");
+    let headerCreate = document.getElementById("navbar-create");
+    let headerTrending = document.getElementById("navbar-trending");
+
+    if (sessionManager.isLogged()) {
+        headerRegister.style.display = "none";
+        headerLogin.style.display = "none";
+    } else {
+        headerRecent.style.display = "none";
+        headerCreate.style.display = "none";
+        headerLogout.style.display = "none";
+        headerTrending.style.display = "none";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", main);
